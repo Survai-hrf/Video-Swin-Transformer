@@ -4,6 +4,7 @@ import random
 from collections import deque
 from operator import itemgetter
 
+import os
 import cv2
 import mmcv
 import numpy as np
@@ -32,7 +33,7 @@ def parse_args():
     parser.add_argument('checkpoint', help='checkpoint file/url')
     parser.add_argument('video_path', help='video file/url')
     parser.add_argument('label', help='label file')
-    parser.add_argument('out_file', help='output result file in video/json')
+    #parser.add_argument('out_file', help='output result file in video/json')
     #parser.add_argument('--sample_length', help='sample_length * stride = amount of frames for a prediction')
     parser.add_argument(
         '--is-folder',
@@ -94,6 +95,7 @@ def show_results_video(result_queue,
                        video_writer,
                        label_color=(0, 0, 255),
                        msg_color=(128, 128, 128)):
+
     if len(result_queue) != 0:
         text_info = {}
         results = result_queue.popleft()
@@ -138,72 +140,102 @@ def show_results(model, data, label, args):
     print(args.sample_length)
     print("ARGS:    ")
     print(args)
-    frame_queue = deque(maxlen=args.sample_length)
-    result_queue = deque(maxlen=1)
 
-    cap = cv2.VideoCapture(args.video_path)
-    num_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-    frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-    frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    fps = cap.get(cv2.CAP_PROP_FPS)
+    #add indiviual video files to folder, if only a file then add just that to list
+    try:
+        video_list = os.listdir(args.video_path)
+    except NotADirectoryError:
+        video_list = [args.video_path] 
+    print(video_list)
 
-    msg = 'Preparing action recognition ...'
-    text_info = {}
-    out_json = {}
-    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-    frame_size = (frame_width, frame_height)
-
-    ind = 0
-    video_writer = None if args.out_file.endswith('.json') \
-        else cv2.VideoWriter(args.out_file, fourcc, fps, frame_size)
-    prog_bar = mmcv.ProgressBar(num_frames)
-    backup_frames = []
-
-    while ind < num_frames:
-        ind += 1
-        prog_bar.update()
-        ret, frame = cap.read()
-        if frame is None:
-            # drop it when encounting None
-            continue
-        backup_frames.append(np.array(frame)[:, :, ::-1])
-        if ind == args.sample_length:
-            # provide a quick show at the beginning
-            frame_queue.extend(backup_frames)
-            backup_frames = []
-        elif ((len(backup_frames) == args.input_step
-               and ind > args.sample_length) or ind == num_frames):
-            # pick a frame from the backup
-            # when the backup is full or reach the last frame
-            chosen_frame = random.choice(backup_frames)
-            backup_frames = []
-            frame_queue.append(chosen_frame)
-
-        ret, scores = inference(model, data, args, frame_queue)
-
-        if ret:
-            num_selected_labels = min(len(label), 5)
-            scores_tuples = tuple(zip(label, scores))
-            scores_sorted = sorted(
-                scores_tuples, key=itemgetter(1), reverse=True)
-            results = scores_sorted[:num_selected_labels]
-            result_queue.append(results)
-
-        if args.out_file.endswith('.json'):
-            text_info, out_json = get_results_json(result_queue, text_info,
-                                                   args.threshold, msg, ind,
-                                                   out_json)
+    for video in video_list:
+        if "." in args.video_path:
+            video = f"{args.video_path}"
         else:
-            text_info = show_results_video(result_queue, text_info,
-                                           args.threshold, msg, frame,
-                                           video_writer, args.label_color,
-                                           args.msg_color)
+            video = f"{args.video_path}{video}"
+        print("    ", video, "     ")
 
-    cap.release()
-    #cv2.destroyAllWindows()
-    if args.out_file.endswith('.json'):
-        with open(args.out_file, 'w') as js:
-            json.dump(out_json, js)
+        frame_queue = deque(maxlen=args.sample_length)
+        result_queue = deque(maxlen=1)
+
+        cap = cv2.VideoCapture(video)
+        num_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+        frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        fps = cap.get(cv2.CAP_PROP_FPS)
+
+        msg = 'Preparing action recognition ...'
+        text_info = {}
+        out_json = {}
+        fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+        frame_size = (frame_width, frame_height)
+
+        ind = 0
+
+        #create new folder and automatic names of output files - modelmark + epoch
+        output_folder_name = args.checkpoint.split("/")[1] + "__" + args.checkpoint.split("/")[2].split(".")[0]
+        print("OUTPUT FOLDER: ", output_folder_name)
+        out_name = video.split("/")[-1].split(".")[0]
+        out_file_name = f"{out_name}_out.mp4"
+        
+        if not os.path.exists(f'outputs/{output_folder_name}'):
+            os.makedirs(f'outputs/{output_folder_name}')
+
+        out_file_path = f"outputs/{output_folder_name}/{out_file_name}"
+
+        
+        print("video: ", video)
+        print("out file path: ", out_file_path)
+        video_writer = None if out_file_path.endswith('.json') \
+            else cv2.VideoWriter(out_file_path, fourcc, fps, frame_size)
+        prog_bar = mmcv.ProgressBar(num_frames)
+        backup_frames = []
+
+        while ind < num_frames:
+            ind += 1
+            prog_bar.update()
+            ret, frame = cap.read()
+            if frame is None:
+                # drop it when encounting None
+                continue
+            backup_frames.append(np.array(frame)[:, :, ::-1])
+            if ind == args.sample_length:
+                # provide a quick show at the beginning
+                frame_queue.extend(backup_frames)
+                backup_frames = []
+            elif ((len(backup_frames) == args.input_step
+                and ind > args.sample_length) or ind == num_frames):
+                # pick a frame from the backup
+                # when the backup is full or reach the last frame
+                chosen_frame = random.choice(backup_frames)
+                backup_frames = []
+                frame_queue.append(chosen_frame)
+
+            ret, scores = inference(model, data, args, frame_queue)
+
+            if ret:
+                num_selected_labels = min(len(label), 5)
+                scores_tuples = tuple(zip(label, scores))
+                scores_sorted = sorted(
+                    scores_tuples, key=itemgetter(1), reverse=True)
+                results = scores_sorted[:num_selected_labels]
+                result_queue.append(results)
+
+            if out_file_path.endswith('.json'):
+                text_info, out_json = get_results_json(result_queue, text_info,
+                                                    args.threshold, msg, ind,
+                                                    out_json)
+            else:
+                text_info = show_results_video(result_queue, text_info,
+                                            args.threshold, msg, frame,
+                                            video_writer, args.label_color,
+                                            args.msg_color)
+
+        cap.release()
+        #cv2.destroyAllWindows()
+        if out_file_path.endswith('.json'):
+            with open(out_file_path, 'w') as js:
+                json.dump(out_json, js)
 
 
 def inference(model, data, args, frame_queue):
@@ -219,6 +251,7 @@ def inference(model, data, args, frame_queue):
     cur_data['imgs'] = cur_windows
     cur_data = args.test_pipeline(cur_data)
     cur_data = collate([cur_data], samples_per_gpu=1)
+
     if next(model.parameters()).is_cuda:
         cur_data = scatter(cur_data, [args.device])[0]
     with torch.no_grad():

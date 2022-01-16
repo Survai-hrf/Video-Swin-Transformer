@@ -14,3 +14,13 @@ TODO:
     (DONE)create a if video works - if not somewhere
     
 
+
+PROCESS:
+    take csv
+    from root dir run bash download_videos.sh in tools/data/survai_var_mk1
+    generate videos_filelist
+    delete broken annots
+    regenerate videos_filelist
+    ready to train
+    infer with longclassdemo
+
