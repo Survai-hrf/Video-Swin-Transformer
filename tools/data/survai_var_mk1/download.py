@@ -211,7 +211,7 @@ def main(input_csv,
     textfile = open("status_report.txt", "w")
 
     for element in status_list:
-
+        print(element)
         textfile.write(element + "\n")
 
     textfile.close()
