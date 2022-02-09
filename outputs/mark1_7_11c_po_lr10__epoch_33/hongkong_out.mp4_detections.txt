@@ -1,0 +1,227 @@
+running: 4.88 4.3
+running: 5.22 4.7
+running: 4.96 5.1
+running: 4.78 5.5
+running: 4.66 5.9
+running: 3.86 6.3
+crowd: 3.81 6.3
+crowd: 4.0 6.7
+running: 3.44 6.7
+crowd: 4.02 7.1
+running: 3.67 7.1
+running: 4.32 7.5
+crowd: 3.29 7.5
+running: 4.64 7.9
+running: 4.12 8.3
+running: 3.69 8.7
+running: 3.34 9.1
+running: 4.23 9.5
+running: 3.84 9.9
+running: 3.34 10.3
+running: 3.43 11.5
+ 11.5
+ 11.9
+running: 3.2 11.9
+ 12.3
+ 12.7
+ 13.1
+ 13.5
+running: 3.55 13.5
+ 13.9
+running: 3.45 13.9
+running: 3.09 14.3
+ 14.3
+running: 3.47 14.7
+ 14.7
+person_on_ground: 4.37 15.9
+arresting: 4.37 15.9
+person_on_ground: 6.13 16.3
+arresting: 5.4 16.3
+person_on_ground: 6.48 16.7
+arresting: 5.49 16.7
+person_on_ground: 6.4 17.1
+arresting: 5.78 17.1
+person_on_ground: 6.29 17.5
+arresting: 5.62 17.5
+person_on_ground: 5.9 17.9
+arresting: 5.76 17.9
+person_on_ground: 6.08 18.3
+arresting: 5.87 18.3
+person_on_ground: 4.54 18.7
+arresting: 3.89 18.7
+ 21.9
+spray: 3.33 26.3
+spray: 3.11 26.7
+spray: 4.0 30.3
+spray: 3.14 34.7
+spray: 3.5 35.5
+spray: 4.16 35.9
+spray: 3.31 36.3
+person_on_ground: 3.09 41.5
+person_on_ground: 3.01 41.9
+person_on_ground: 3.21 42.7
+arresting: 3.01 42.7
+arresting: 3.04 43.1
+person_on_ground: 3.64 43.9
+person_on_ground: 4.14 44.3
+person_on_ground: 4.9 44.7
+person_on_ground: 5.26 45.1
+arresting: 3.54 45.1
+person_on_ground: 5.16 45.5
+arresting: 4.01 45.5
+person_on_ground: 5.39 45.9
+arresting: 4.42 45.9
+person_on_ground: 5.21 46.3
+arresting: 4.39 46.3
+person_on_ground: 5.48 46.7
+arresting: 4.27 46.7
+person_on_ground: 5.94 47.1
+arresting: 4.36 47.1
+person_on_ground: 5.08 47.5
+arresting: 3.86 47.5
+person_on_ground: 4.83 47.9
+arresting: 3.7 47.9
+person_on_ground: 4.68 48.3
+arresting: 3.47 48.3
+person_on_ground: 4.62 48.7
+arresting: 3.19 48.7
+person_on_ground: 4.76 49.1
+arresting: 3.5 49.1
+person_on_ground: 3.86 49.5
+arresting: 3.43 49.5
+arresting: 3.5 49.9
+person_on_ground: 3.24 49.9
+arresting: 3.53 50.3
+person_on_ground: 3.07 50.3
+arresting: 3.4 50.7
+arresting: 3.24 51.1
+arresting: 3.4 51.5
+arresting: 3.68 51.9
+arresting: 3.5 52.3
+arresting: 3.35 52.7
+ 52.7
+ 53.1
+arresting: 3.01 53.1
+ 53.5
+ 53.9
+ 54.3
+ 54.7
+ 55.1
+ 55.5
+ 55.9
+ 56.3
+arresting: 3.31 67.9
+arresting: 3.95 68.3
+person_on_ground: 3.06 68.3
+arresting: 3.98 68.7
+person_on_ground: 3.05 68.7
+arresting: 4.03 69.1
+person_on_ground: 3.34 69.1
+crowd: 3.12 70.3
+crowd: 3.53 70.7
+crowd: 3.69 71.1
+crowd: 4.07 71.5
+crowd: 4.23 71.9
+crowd: 4.14 72.3
+crowd: 3.89 72.7
+crowd: 3.56 73.1
+crowd: 3.55 73.5
+crowd: 3.31 73.9
+ 74.7
+crowd: 3.13 75.5
+crowd: 3.2 75.9
+crowd: 3.67 76.3
+ 79.5
+ 79.9
+ 80.3
+ 80.7
+ 81.5
+crowd: 3.25 82.3
+crowd: 4.32 82.7
+crowd: 4.63 83.1
+ 83.1
+crowd: 4.51 83.5
+ 83.5
+crowd: 4.73 83.9
+ 83.9
+crowd: 4.89 84.3
+ 84.3
+crowd: 4.87 84.7
+ 84.7
+crowd: 5.08 85.1
+ 85.1
+crowd: 4.94 85.5
+ 85.5
+crowd: 4.8 85.9
+ 85.9
+crowd: 4.56 86.3
+ 86.3
+crowd: 3.96 86.7
+crowd: 4.01 87.1
+crowd: 4.35 87.5
+crowd: 4.67 87.9
+crowd: 4.64 88.3
+crowd: 5.12 88.7
+crowd: 4.8 89.1
+crowd: 4.64 89.5
+crowd: 4.14 89.9
+ 91.5
+ 91.9
+ 92.3
+ 92.7
+ 93.1
+ 93.5
+crowd: 4.19 95.1
+crowd: 3.67 95.9
+crowd: 3.65 96.3
+crowd: 3.79 96.7
+crowd: 3.46 97.1
+crowd: 3.81 97.5
+crowd: 3.35 97.9
+crowd: 3.46 99.9
+crowd: 3.71 100.3
+crowd: 4.55 100.7
+crowd: 3.48 101.1
+crowd: 4.08 101.5
+ 101.5
+ 117.9
+ 119.5
+ 119.9
+ 120.3
+ 120.7
+ 122.7
+ 123.1
+ 123.5
+ 123.9
+ 124.3
+crowd: 3.28 138.7
+crowd: 3.74 139.1
+ 139.1
+crowd: 4.56 139.5
+crowd: 4.74 139.9
+crowd: 4.64 140.3
+crowd: 3.33 140.7
+ 140.7
+ 141.1
+ 141.5
+ 141.9
+ 142.3
+crowd: 3.14 142.3
+ 142.7
+ 143.1
+crowd: 3.08 143.1
+ 143.5
+crowd: 3.04 143.5
+ 143.9
+crowd: 3.07 143.9
+ 144.3
+crowd: 3.18 144.3
+ 144.7
+crowd: 3.44 144.7
+ 145.1
+crowd: 3.59 145.1
+ 145.5
+ 145.9
+crowd: 3.4 146.3
+ 147.5
+ 147.9

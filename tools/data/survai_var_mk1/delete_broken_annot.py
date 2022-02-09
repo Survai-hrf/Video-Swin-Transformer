@@ -18,7 +18,7 @@ def delete_broken(dataset_root):
     #get all vid dataset subsets ex: train and val, or, train val and test
     splits = [names.split("_")[-1] for names in os.listdir(dataset_root) if "videos_" in names]
     print("data subsets: ", splits)
-
+    delete_counter = 0
     #loop through every dataset subset
     for subset in splits:
         print(subset)
@@ -38,7 +38,8 @@ def delete_broken(dataset_root):
 
                 #delete video
                 os.remove(f'{dataset_root}/videos_{subset}/{vid}') 
-                print("deleted file")
+                delete_counter +=1
+                print(f"deleted {delete_counter} files")
 
                 #delete reference in .txt
                 """with open(dataset_root + f'/{dataset_name}_{subset}_list.txt', "w") as f:

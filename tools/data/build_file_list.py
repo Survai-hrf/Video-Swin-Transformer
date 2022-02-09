@@ -257,7 +257,7 @@ def main():
             raise ValueError(f"subset must be in ['train', 'val', 'test'], "
                              f'but got {args.subset}.')
 
-        filename = f'{args.dataset}_{args.subset}_list_{args.format}.txt'
+        filename = f'{args.dataset}_{args.subset}_list.txt'
         if args.output_format == 'txt':
             with open(osp.join(out_path, filename), 'w') as f:
                 f.writelines(lists[0][ind])

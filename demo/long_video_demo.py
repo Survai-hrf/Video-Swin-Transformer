@@ -25,7 +25,6 @@ EXCLUED_STEPS = [
     'PyAVDecode', 'RawFrameDecode', 'FrameSelector'
 ]
 
-
 def parse_args():
     parser = argparse.ArgumentParser(
         description='MMAction2 predict different labels in a long video demo')
@@ -87,27 +86,56 @@ def parse_args():
     return args
 
 
+
 def show_results_video(result_queue,
                        text_info,
                        thr,
                        msg,
                        frame,
                        video_writer,
+                       ind, fps,
                        label_color=(0, 0, 255),
-                       msg_color=(128, 128, 128)):
+                       msg_color=(128, 128, 128),
+                       ):
+
 
     if len(result_queue) != 0:
         text_info = {}
         results = result_queue.popleft()
         for i, result in enumerate(results):
             selected_label, score = result
-            if score < thr:
+
+            if selected_label == "striking" and score > 2.2:
+                pass
+            elif score < thr:
                 break
+
             location = (0, 40 + i * 20)
-            text = selected_label + ': ' + str(round(score, 2))
-            text_info[location] = text
+
+
+            if selected_label == "advancing":
+                break
+            elif selected_label == "blood":
+                break
+            else:
+                score = str(round(score, 2))
+                text = selected_label + ': ' + score
+                timestamp = str(round(ind/round(fps), 1))
+                
+                text_info[location] = text
+
+
+            #write threshold passers to a txt
+            with open(f"{out_file_path}_detections.txt", 'a') as f:
+                f.write(text + " " + timestamp + "\n")
+
+
+
+            
+
             cv2.putText(frame, text, location, FONTFACE, FONTSCALE,
                         label_color, THICKNESS, LINETYPE)
+                        
     elif len(text_info):
         for location, text in text_info.items():
             cv2.putText(frame, text, location, FONTFACE, FONTSCALE,
@@ -127,7 +155,9 @@ def get_results_json(result_queue, text_info, thr, msg, ind, out_json):
             selected_label, score = result
             if score < thr:
                 break
+
             text_info[i + 1] = selected_label + ': ' + str(round(score, 2))
+
         out_json[ind] = text_info
     elif len(text_info):
         out_json[ind] = text_info
@@ -181,6 +211,7 @@ def show_results(model, data, label, args):
         if not os.path.exists(f'outputs/{output_folder_name}'):
             os.makedirs(f'outputs/{output_folder_name}')
 
+        global out_file_path 
         out_file_path = f"outputs/{output_folder_name}/{out_file_name}"
 
         
@@ -194,6 +225,13 @@ def show_results(model, data, label, args):
         while ind < num_frames:
             ind += 1
             prog_bar.update()
+
+    
+            """with open(f"{out_file_path}_detections.txt", 'w+') as f:
+                if f.readlines()[-1] != "":
+                    f.write(" " + str(ind) + "\n")"""
+
+
             ret, frame = cap.read()
             if frame is None:
                 # drop it when encounting None
@@ -228,11 +266,12 @@ def show_results(model, data, label, args):
             else:
                 text_info = show_results_video(result_queue, text_info,
                                             args.threshold, msg, frame,
-                                            video_writer, args.label_color,
+                                            video_writer, ind, fps, args.label_color,
                                             args.msg_color)
 
         cap.release()
         #cv2.destroyAllWindows()
+
         if out_file_path.endswith('.json'):
             with open(out_file_path, 'w') as js:
                 json.dump(out_json, js)
@@ -269,6 +308,8 @@ def inference(model, data, args, frame_queue):
 
 
 def main():
+    
+
     args = parse_args()
 
     args.device = torch.device(args.device)
@@ -302,7 +343,6 @@ def main():
     args.test_pipeline = test_pipeline
 
     show_results(model, data, label, args)
-
 
 if __name__ == '__main__':
     main()

@@ -1,0 +1,66 @@
+arresting: 0.81 2.1
+arresting: 0.79 2.3
+arresting: 0.82 2.5
+arresting: 0.77 2.7
+arresting: 0.77 2.9
+arresting: 0.78 3.1
+arresting: 0.75 3.3
+arresting: 0.79 3.5
+arresting: 0.79 3.7
+arresting: 0.79 3.9
+arresting: 0.75 4.1
+arresting: 0.64 4.3
+arresting: 0.65 4.5
+arresting: 0.57 4.7
+arresting: 0.54 4.9
+arresting: 0.55 5.1
+arresting: 0.46 5.3
+blood: 0.31 5.3
+arresting: 0.47 5.5
+arresting: 0.42 5.7
+blood: 0.33 5.7
+blood: 0.36 5.9
+arresting: 0.32 5.9
+blood: 0.33 6.1
+arresting: 0.31 6.1
+blood: 0.31 6.3
+aiming: 0.32 8.1
+ 8.3
+ 8.5
+ 8.7
+ 8.9
+ 9.1
+ 9.3
+ 9.5
+ 9.7
+ 9.9
+ 10.1
+ 10.3
+aiming: 0.3 10.5
+arresting: 0.3 11.5
+arresting: 0.37 11.7
+arresting: 0.42 11.9
+arresting: 0.5 12.1
+arresting: 0.53 12.3
+arresting: 0.55 12.5
+arresting: 0.59 12.7
+arresting: 0.58 12.9
+arresting: 0.57 13.1
+arresting: 0.55 13.3
+arresting: 0.52 13.5
+arresting: 0.54 13.7
+blood: 0.31 13.7
+arresting: 0.55 13.9
+blood: 0.31 13.9
+arresting: 0.46 14.1
+blood: 0.34 14.1
+arresting: 0.53 14.3
+blood: 0.34 14.3
+arresting: 0.5 14.5
+blood: 0.34 14.5
+arresting: 0.45 14.7
+blood: 0.36 14.7
+arresting: 0.5 14.9
+blood: 0.32 14.9
+arresting: 0.52 15.1
+arresting: 0.5 15.3

@@ -6,21 +6,24 @@ INFO
 
     delete_broken_annot.py will remove broken videos to stop training breaking
 
+    LEARNING RATE: reducing learning rate from /8 to /10 seems to give good results. finally broke .6 on all classes
+
 
 TODO:
 
-    delete_broken_annot is not working all the way. it deletes the video but does not overwrite the txt
-
-    (DONE)create a if video works - if not somewhere
-    
-
+    label cosmetic update
 
 PROCESS:
-    take csv
+    download csv
     from root dir run bash download_videos.sh in tools/data/survai_var_mk1
     generate videos_filelist
     delete broken annots
     regenerate videos_filelist
     ready to train
+        - change work dir in config
+        - change class count in swin tiny base config
     infer with longclassdemo
 
+
+when adjusting classes:
+    ctrl f the classes in the train and val csv
