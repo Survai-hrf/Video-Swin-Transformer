@@ -1,0 +1,317 @@
+throwing: 0.5 5.1
+throwing: 0.48 5.6
+running: 0.32 5.6
+throwing: 0.49 6.1
+running: 0.37 6.1
+throwing: 0.52 6.6
+running: 0.33 6.6
+throwing: 0.49 7.0
+running: 0.33 7.0
+throwing: 0.54 7.5
+running: 0.32 7.5
+throwing: 0.58 8.0
+throwing: 0.6 8.5
+throwing: 0.59 9.0
+throwing: 0.53 9.4
+running: 0.32 9.4
+throwing: 0.53 9.9
+running: 0.31 9.9
+throwing: 0.55 10.4
+running: 0.32 10.4
+throwing: 0.57 10.9
+throwing: 0.56 11.4
+throwing: 0.66 11.8
+throwing: 0.67 12.3
+throwing: 0.67 12.8
+throwing: 0.62 13.3
+running: 0.3 13.3
+throwing: 0.69 13.8
+throwing: 0.7 14.2
+throwing: 0.74 14.7
+throwing: 0.66 15.2
+throwing: 0.68 15.7
+throwing: 0.59 16.2
+running: 0.35 16.2
+throwing: 0.59 16.6
+running: 0.35 16.6
+throwing: 0.53 17.1
+running: 0.39 17.1
+throwing: 0.55 17.6
+running: 0.36 17.6
+throwing: 0.52 18.1
+running: 0.4 18.1
+throwing: 0.56 18.6
+running: 0.35 18.6
+throwing: 0.45 19.0
+running: 0.44 19.0
+running: 0.44 19.5
+throwing: 0.42 19.5
+running: 0.46 20.0
+throwing: 0.43 20.0
+throwing: 0.45 20.5
+running: 0.36 20.5
+throwing: 0.37 21.0
+running: 0.36 21.0
+throwing: 0.45 21.4
+throwing: 0.48 21.9
+throwing: 0.43 22.4
+throwing: 0.44 22.9
+throwing: 0.45 23.4
+throwing: 0.48 23.8
+throwing: 0.5 24.3
+throwing: 0.44 24.8
+throwing: 0.45 25.3
+throwing: 0.48 25.8
+throwing: 0.43 26.2
+throwing: 0.42 26.7
+crowd: 0.35 26.7
+throwing: 0.38 27.2
+crowd: 0.35 27.2
+crowd: 0.36 27.7
+throwing: 0.33 27.7
+crowd: 0.39 28.2
+crowd: 0.38 28.6
+crowd: 0.36 29.1
+crowd: 0.34 29.6
+throwing: 0.38 32.5
+throwing: 0.39 33.0
+throwing: 0.41 33.4
+throwing: 0.42 33.9
+throwing: 0.43 34.4
+throwing: 0.49 34.9
+throwing: 0.53 35.4
+throwing: 0.49 35.8
+throwing: 0.51 36.3
+throwing: 0.5 36.8
+throwing: 0.53 37.3
+throwing: 0.48 37.8
+throwing: 0.5 38.2
+throwing: 0.48 38.7
+throwing: 0.46 39.2
+throwing: 0.49 39.7
+throwing: 0.44 40.2
+throwing: 0.46 40.6
+throwing: 0.45 41.1
+throwing: 0.46 41.6
+throwing: 0.41 42.1
+throwing: 0.4 42.6
+aiming: 0.3 42.6
+throwing: 0.44 43.0
+throwing: 0.45 43.5
+throwing: 0.47 44.0
+throwing: 0.48 44.5
+throwing: 0.44 45.0
+throwing: 0.46 45.4
+throwing: 0.45 45.9
+throwing: 0.46 46.4
+throwing: 0.47 46.9
+throwing: 0.51 47.4
+throwing: 0.46 47.8
+throwing: 0.49 48.3
+throwing: 0.52 48.8
+throwing: 0.52 49.3
+throwing: 0.56 49.8
+throwing: 0.58 50.2
+throwing: 0.52 50.7
+throwing: 0.62 51.2
+throwing: 0.52 51.7
+throwing: 0.52 52.2
+throwing: 0.59 52.6
+throwing: 0.59 53.1
+throwing: 0.56 53.6
+throwing: 0.53 54.1
+throwing: 0.38 54.6
+throwing: 0.44 55.0
+throwing: 0.31 55.5
+throwing: 0.33 56.0
+running: 0.32 56.0
+running: 0.31 56.5
+throwing: 0.3 56.5
+running: 0.4 57.0
+running: 0.42 57.4
+running: 0.46 57.9
+running: 0.47 58.4
+running: 0.5 58.9
+running: 0.46 59.4
+running: 0.5 59.8
+running: 0.53 60.3
+running: 0.51 60.8
+running: 0.42 61.3
+running: 0.43 61.8
+running: 0.41 62.2
+throwing: 0.32 62.7
+running: 0.32 62.7
+throwing: 0.35 63.2
+running: 0.35 63.2
+throwing: 0.39 63.7
+running: 0.36 63.7
+throwing: 0.46 64.2
+throwing: 0.48 64.6
+throwing: 0.6 65.1
+throwing: 0.61 65.6
+throwing: 0.56 66.1
+throwing: 0.54 66.6
+throwing: 0.49 67.0
+throwing: 0.51 67.5
+throwing: 0.37 68.0
+ 68.0
+throwing: 0.37 68.5
+ 68.5
+ 69.0
+throwing: 0.32 69.0
+ 69.4
+throwing: 0.33 69.4
+ 69.9
+throwing: 0.32 69.9
+ 70.4
+ 70.9
+ 71.4
+ 71.8
+ 72.3
+ 72.8
+throwing: 0.31 72.8
+ 73.3
+ 73.8
+throwing: 0.3 73.8
+ 74.2
+throwing: 0.3 74.2
+ 74.7
+ 75.2
+ 75.7
+throwing: 0.31 75.7
+ 76.2
+throwing: 0.31 76.2
+ 76.6
+throwing: 0.36 76.6
+ 77.1
+throwing: 0.34 77.1
+ 77.6
+throwing: 0.35 77.6
+ 78.1
+throwing: 0.31 78.1
+ 78.6
+ 79.0
+ 79.5
+ 80.0
+ 80.5
+ 81.0
+ 81.4
+ 81.9
+ 82.4
+ 82.9
+ 83.4
+ 83.8
+ 84.3
+ 84.8
+ 85.3
+ 85.8
+crowd: 0.3 85.8
+ 86.2
+ 86.7
+ 87.2
+ 87.7
+ 88.2
+ 88.6
+ 89.1
+ 89.6
+ 90.1
+running: 0.31 90.1
+ 90.6
+ 91.0
+ 91.5
+ 92.0
+ 92.5
+ 93.4
+running: 0.32 93.9
+ 93.9
+arresting: 0.31 96.8
+arresting: 0.37 97.3
+arresting: 0.38 97.8
+running: 0.35 98.2
+arresting: 0.35 98.7
+running: 0.31 98.7
+arresting: 0.3 99.2
+arresting: 0.3 100.2
+running: 0.31 101.1
+ 101.6
+running: 0.33 102.1
+ 102.1
+ 102.6
+running: 0.35 102.6
+ 103.0
+running: 0.32 103.0
+ 103.5
+ 104.0
+arresting: 0.31 104.5
+arresting: 0.41 105.0
+arresting: 0.42 105.4
+arresting: 0.54 105.9
+arresting: 0.62 106.4
+arresting: 0.68 106.9
+arresting: 0.76 107.4
+arresting: 0.85 107.8
+arresting: 0.86 108.3
+arresting: 0.88 108.8
+arresting: 0.89 109.3
+arresting: 0.87 109.8
+arresting: 0.86 110.2
+arresting: 0.92 110.7
+arresting: 0.92 111.2
+arresting: 0.93 111.7
+arresting: 0.96 112.2
+arresting: 0.96 112.6
+arresting: 0.93 113.1
+arresting: 0.96 113.6
+arresting: 0.93 114.1
+arresting: 0.95 114.6
+arresting: 0.97 115.0
+arresting: 0.98 115.5
+arresting: 0.98 116.0
+arresting: 0.98 116.5
+arresting: 0.98 117.0
+arresting: 0.97 117.4
+arresting: 0.98 117.9
+arresting: 0.97 118.4
+arresting: 0.97 118.9
+arresting: 0.97 119.4
+arresting: 0.98 119.8
+arresting: 0.97 120.3
+arresting: 0.97 120.8
+arresting: 0.97 121.3
+arresting: 0.97 121.8
+arresting: 0.97 122.2
+arresting: 0.98 122.7
+arresting: 0.86 123.2
+arresting: 0.76 123.7
+arresting: 0.69 124.2
+arresting: 0.59 124.6
+arresting: 0.51 125.1
+arresting: 0.38 125.6
+throwing: 0.37 125.6
+throwing: 0.43 126.1
+throwing: 0.48 126.6
+throwing: 0.54 127.0
+throwing: 0.58 127.5
+throwing: 0.69 128.0
+throwing: 0.68 128.5
+throwing: 0.66 129.0
+throwing: 0.65 129.4
+throwing: 0.62 129.9
+throwing: 0.63 130.4
+throwing: 0.59 130.9
+throwing: 0.59 131.4
+throwing: 0.49 131.8
+throwing: 0.46 132.3
+throwing: 0.4 132.8
+throwing: 0.35 133.3
+arresting: 0.38 135.2
+arresting: 0.39 135.7
+arresting: 0.43 136.2
+arresting: 0.47 136.6
+arresting: 0.49 137.1
+arresting: 0.49 137.6
+arresting: 0.5 138.1
+arresting: 0.5 138.6
+arresting: 0.54 139.0
+arresting: 0.56 139.5
+arresting: 0.61 140.0

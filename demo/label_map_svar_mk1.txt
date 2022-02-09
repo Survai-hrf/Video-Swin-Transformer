@@ -1,13 +1,10 @@
-ad
-am
-ar
-bl
-br
-cr
-pg
-po
-ps
-ru
-st
-th
-extinguishing fire
+advancing
+aiming
+arresting
+brawling
+crowd
+person_on_ground
+running
+spray
+striking
+throwing
