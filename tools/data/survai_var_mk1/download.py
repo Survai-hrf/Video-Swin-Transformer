@@ -86,7 +86,7 @@ def download_clip(video_identifier,
     if not os.path.exists(output_filename):
         if not os.path.exists(tmp_filename):
             command = [
-                'yt-dlp', '--quiet', '--no-warnings',
+                'yt-dlp', '--cookies-from-browser firefox', '--quiet', '--no-warnings',
                 '--no-check-certificate', '-f', 'mp4', '-o',
                 '"%s"' % tmp_filename,
                 '"%s"' % (url_base + video_identifier)
