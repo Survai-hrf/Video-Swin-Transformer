@@ -1,0 +1,7 @@
+running: 4.25 7.1
+running: 4.33 7.5
+running: 4.12 8.3
+running: 4.62 10.3
+throwing: 4.27 10.7
+person_on_ground: 4.88 18.3
+person_on_ground: 4.69 19.1
