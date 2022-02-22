@@ -1,0 +1,12 @@
+crowd: 4.79, 5.1
+crowd: 4.24, 8.2
+crowd: 4.09, 14.2
+spray: 6.51, 20.3
+crowd: 4.98, 26.4
+crowd: 5.52, 29.4
+crowd: 5.07, 32.5
+throwing: 6.39, 56.8
+running: 4.14, 105.4
+running: 4.71, 117.6
+running: 4.34, 120.6
+aiming: 5.15, 205.8

@@ -105,33 +105,28 @@ def show_results_video(result_queue,
         for i, result in enumerate(results):
             selected_label, score = result
 
-            if selected_label == "striking" and score > 2.2:
+            if selected_label == "striking" and score >= 3.0:
                 pass
+            elif selected_label == "throwing" and score <= 5.0:
+                break
+            elif selected_label == 'spray' and score <= 6.0:
+                break
+            elif selected_label == 'aiming' and score <= 6.0:
+                break
             elif score < thr:
                 break
 
             location = (0, 40 + i * 20)
 
-
-            if selected_label == "advancing":
-                break
-            elif selected_label == "blood":
-                break
-            else:
-                score = str(round(score, 2))
-                text = selected_label + ': ' + score
-                timestamp = str(round(ind/round(fps), 1))
-                
-                text_info[location] = text
-
+            score = str(round(score, 2))
+            text = selected_label + ': ' + score
+            timestamp = str(round(ind/round(fps), 1))
+            
+            text_info[location] = text
 
             #write threshold passers to a txt
             with open(f"{out_file_path}_detections.txt", 'a') as f:
                 f.write(text + " " + timestamp + "\n")
-
-
-
-            
 
             cv2.putText(frame, text, location, FONTFACE, FONTSCALE,
                         label_color, THICKNESS, LINETYPE)
@@ -156,7 +151,7 @@ def get_results_json(result_queue, text_info, thr, msg, ind, out_json):
             if score < thr:
                 break
 
-            text_info[i + 1] = selected_label + ': ' + str(round(score, 2))
+            text_info[i + 1] = selected_label + ' ' + str(round(score, 2))
 
         out_json[ind] = text_info
     elif len(text_info):
@@ -171,18 +166,39 @@ def show_results(model, data, label, args):
     print("ARGS:    ")
     print(args)
 
-    #add indiviual video files to folder, if only a file then add just that to list
+    #add indiviual video files to folder, if only a file then add just that to list, traverse subdirs
     try:
-        video_list = os.listdir(args.video_path)
+        #if declared folder
+        if args.is_folder == True:
+            video_list = []
+            already_done = os.listdir(f'{args.video_path}/survai_output/')
+
+            #go through all sub dirs
+            for roots,dirs,files in os.walk(args.video_path):  
+                for file_name in files:
+
+                    #skip videos already done
+                    if file_name.split('.')[0] + '_out.mp4' in already_done:
+                        print("skipping: "+ file_name)
+                        continue
+                    else:
+                        full_file_path = os.path.join(roots, file_name)
+                        video_list.append(full_file_path)
+
+            #print(video_list)
+        #video_list = os.listdir(args.video_path)
+        #print(video_list)
+        #print(args.video_path)
     except NotADirectoryError:
         video_list = [args.video_path] 
-    print(video_list)
+    #print(video_list)
 
     for video in video_list:
-        if "." in args.video_path:
-            video = f"{args.video_path}"
-        else:
-            video = f"{args.video_path}{video}"
+        #if single video
+        #if "." in args.video_path:
+        #    video = f"{args.video_path}"
+        #else:
+        #    video = f"{args.video_path}{video}"
         print("    ", video, "     ")
 
         frame_queue = deque(maxlen=args.sample_length)
@@ -212,7 +228,10 @@ def show_results(model, data, label, args):
             os.makedirs(f'outputs/{output_folder_name}')
 
         global out_file_path 
-        out_file_path = f"outputs/{output_folder_name}/{out_file_name}"
+        if args.is_folder == True:
+            out_file_path = f"{args.video_path}/survai_output/{out_file_name}"
+        else:
+            out_file_path = f"outputs/{output_folder_name}/{out_file_name}"
 
         
         print("video: ", video)

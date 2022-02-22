@@ -18,7 +18,7 @@ model = dict(
     cls_head=dict(
         type='I3DHead',
         in_channels=768,
-        num_classes=10,
+        num_classes=9,
         spatial_type='avg',
         dropout_ratio=0.5),
     test_cfg = dict(average_clips=None))

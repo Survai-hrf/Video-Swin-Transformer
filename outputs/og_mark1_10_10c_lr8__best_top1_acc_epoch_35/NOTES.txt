@@ -1,0 +1,15 @@
+
+
+raise aim to 5.0
+raise spray to 5.0
+
+raise striking to 3.0
+
+lower brawling?
+
+person on ground bias when camera tilted downward
+
+throwing bias in smoke
+
+
+ind | file name | directory path | link |
