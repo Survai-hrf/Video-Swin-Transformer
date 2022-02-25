@@ -171,12 +171,13 @@ def show_results(model, data, label, args):
         #if declared folder
         if args.is_folder == True:
             video_list = []
+
             already_done = os.listdir(f'{args.video_path}/survai_output/')
 
             #go through all sub dirs
             for roots,dirs,files in os.walk(args.video_path):  
                 for file_name in files:
-
+                    print("DIR:", roots)
                     #skip videos already done
                     if file_name.split('.')[0] + '_out.mp4' in already_done:
                         print("skipping: "+ file_name)
@@ -201,14 +202,17 @@ def show_results(model, data, label, args):
         #    video = f"{args.video_path}{video}"
         print("    ", video, "     ")
 
+        if "survai_output" in video:
+            print("skipping: ", video)
+            continue
         frame_queue = deque(maxlen=args.sample_length)
         result_queue = deque(maxlen=1)
-
         cap = cv2.VideoCapture(video)
         num_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
         frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
         fps = cap.get(cv2.CAP_PROP_FPS)
+        print("video info: ", num_frames, frame_width, frame_height, fps)
 
         msg = 'Preparing action recognition ...'
         text_info = {}
@@ -244,16 +248,18 @@ def show_results(model, data, label, args):
         while ind < num_frames:
             ind += 1
             prog_bar.update()
-
-    
-            """with open(f"{out_file_path}_detections.txt", 'w+') as f:
-                if f.readlines()[-1] != "":
-                    f.write(" " + str(ind) + "\n")"""
-
-
             ret, frame = cap.read()
+
+            #insure it has time to load in the frames
+            if ret:
+                pass
+            else:
+                ind -= 1
+                cv2.waitKey(100)
+                continue
             if frame is None:
                 # drop it when encounting None
+                print("none")
                 continue
             backup_frames.append(np.array(frame)[:, :, ::-1])
             if ind == args.sample_length:
@@ -262,6 +268,7 @@ def show_results(model, data, label, args):
                 backup_frames = []
             elif ((len(backup_frames) == args.input_step
                 and ind > args.sample_length) or ind == num_frames):
+
                 # pick a frame from the backup
                 # when the backup is full or reach the last frame
                 chosen_frame = random.choice(backup_frames)
@@ -289,7 +296,7 @@ def show_results(model, data, label, args):
                                             args.msg_color)
 
         cap.release()
-        #cv2.destroyAllWindows()
+        cv2.destroyAllWindows()
 
         if out_file_path.endswith('.json'):
             with open(out_file_path, 'w') as js:
